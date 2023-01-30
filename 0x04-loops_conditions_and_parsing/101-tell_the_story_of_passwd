@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-# Reads a file
-input="/etc/passwd"
-while IFS= read -r line; do
-	echo "$line" | cut -f1,3,6 -d':'
-done < $input
+# Tells a story based on the contents of the `/etc/passwd` file.
+
+while IFS=':' read -r username password uid gid info home shell; do
+  echo "The user $username is part of the $gid gang,"\
+  "lives in $home and rides $shell."\
+  "$uid's place is protected by the passcode $password,"\
+  "more info about the user here: $info"
+done < "/etc/passwd"
