@@ -1,7 +1,0 @@
-# config/initializers/uri.rb
-
-module URI
-  def self.escape(*args)
-    DEFAULT_PARSER.escape(*args)
-  end
-end
